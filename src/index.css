@@ -1,0 +1,58 @@
+@import 'tailwindcss';
+
+/* ---------- Marca JRA Servicios Ambientales ---------- */
+@theme {
+  --color-eco-50: #f2f8e7;
+  --color-eco-100: #e0efc7;
+  --color-eco-300: #b6d97a;
+  --color-eco-500: #7ab829; /* verde reciclaje (arcos del logo) */
+  --color-eco-600: #649a1f;
+  --color-eco-700: #4d7717;
+
+  --color-trust-50: #eaf2f8;
+  --color-trust-100: #d6e6f2;
+  --color-trust-300: #6fa3c9;
+  --color-trust-500: #1f7bc4; /* azul casco del logo */
+  --color-trust-600: #12558b;
+  --color-trust-700: #0b3a5c; /* azul profundo (textos) */
+  --color-trust-900: #072439;
+
+  --color-spark: #f5c518; /* amarillo foco (acento) */
+
+  --font-sans: 'Inter', system-ui, 'Segoe UI', Roboto, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* carrusel infinito de imágenes */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  animation: marquee 30s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: var(--color-trust-700);
+  background: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
