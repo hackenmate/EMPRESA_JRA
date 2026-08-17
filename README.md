@@ -1,32 +1,59 @@
-# React + TypeScript + Vite
+# JRA Servicios Ambientales
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Sitio web corporativo de **J.R.A. Servicios Ambientales E.I.R.L.**, orientado a empresas que requieren gestión integral de residuos, transporte autorizado, reciclaje y servicios ambientales.
 
-Currently, two official plugins are available:
+## Funcionalidades
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Presentación corporativa y propuesta de valor.
+- Catálogo de servicios ambientales.
+- Línea especializada de recolección de aceite vegetal usado.
+- Galería de operación y flota.
+- Registros y autorizaciones corporativas.
+- Contacto directo por teléfono, correo y WhatsApp.
+- Sello Ecoamigable con código QR verificable.
+- Página pública de verificación mediante `?verificado=nombre-del-negocio`.
+- Diseño responsive con animaciones y soporte para `prefers-reduced-motion`.
 
-## React Compiler
+## Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React 19
+- TypeScript
+- Vite
+- Tailwind CSS 4
+- Motion
+- react-qr-code
+- Oxlint
 
-## Expanding the Oxlint configuration
+## Desarrollo local
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```bash
+npm install
+npm run dev
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## Build de producción
+
+```bash
+npm run build
+npm run preview
+```
+
+## Estructura principal
+
+```text
+src/
+├── assets/brand/              # Identidad visual y fotografías
+├── components/
+│   └── SelloVerificacion.tsx  # Página pública del sello ecoamigable
+├── App.tsx                    # Landing corporativa principal
+├── index.css                  # Tema, estilos globales y accesibilidad
+└── main.tsx                   # Entrada de React
+```
+
+## Datos de contacto utilizados en el sitio
+
+- J.R.A. Servicios Ambientales E.I.R.L.
+- Arequipa, Perú
+- Sitio: www.jra.com.pe
+
+> Antes de publicar cambios en producción, validar que teléfonos, correos, autorizaciones, registros y dirección comercial continúen vigentes.
