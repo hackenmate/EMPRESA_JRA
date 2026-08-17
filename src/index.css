@@ -5,20 +5,19 @@
   --color-eco-50: #f2f8e7;
   --color-eco-100: #e0efc7;
   --color-eco-300: #b6d97a;
-  --color-eco-500: #7ab829; /* verde reciclaje (arcos del logo) */
+  --color-eco-500: #7ab829;
   --color-eco-600: #649a1f;
   --color-eco-700: #4d7717;
 
   --color-trust-50: #eaf2f8;
   --color-trust-100: #d6e6f2;
   --color-trust-300: #6fa3c9;
-  --color-trust-500: #1f7bc4; /* azul casco del logo */
+  --color-trust-500: #1f7bc4;
   --color-trust-600: #12558b;
-  --color-trust-700: #0b3a5c; /* azul profundo (textos) */
+  --color-trust-700: #0b3a5c;
   --color-trust-900: #072439;
 
-  --color-spark: #f5c518; /* amarillo foco (acento) */
-
+  --color-spark: #f5c518;
   --font-sans: 'Inter', system-ui, 'Segoe UI', Roboto, sans-serif;
 }
 
@@ -26,7 +25,48 @@
   box-sizing: border-box;
 }
 
-/* carrusel infinito de imágenes */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 84px;
+  background: #ffffff;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  overflow-x: hidden;
+  font-family: var(--font-sans);
+  color: var(--color-trust-700);
+  background: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a,
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid var(--color-spark);
+  outline-offset: 3px;
+  border-radius: 0.75rem;
+}
+
+::selection {
+  color: #ffffff;
+  background: var(--color-trust-600);
+}
+
+/* Carrusel infinito de imágenes */
 @keyframes marquee {
   from {
     transform: translateX(0);
@@ -38,21 +78,40 @@
 
 .marquee-track {
   animation: marquee 30s linear infinite;
+  will-change: transform;
 }
 
-.marquee-track:hover {
+.marquee-track:hover,
+.marquee-track:focus-within {
   animation-play-state: paused;
 }
 
-html {
-  scroll-behavior: smooth;
+/* Mejor lectura en pantallas pequeñas */
+@media (max-width: 640px) {
+  html {
+    scroll-padding-top: 76px;
+  }
+
+  .marquee-track {
+    animation-duration: 38s;
+  }
 }
 
-body {
-  margin: 0;
-  font-family: var(--font-sans);
-  color: var(--color-trust-700);
-  background: #ffffff;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
+/* Respeta las preferencias de accesibilidad del sistema */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .marquee-track {
+    animation: none;
+  }
 }
